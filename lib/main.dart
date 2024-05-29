@@ -14,7 +14,6 @@ class MyApp extends StatefulWidget {
 
 // widget config component
 class ConfigComponent extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,8 +21,8 @@ class ConfigComponent extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/':Home()
+        '/': (context) => HomePage(),
       },
-    )
+    );
   }
 }
