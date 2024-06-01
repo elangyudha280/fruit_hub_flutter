@@ -27,7 +27,7 @@ class ConfigComponent extends State<MyApp> {
         // login page
         '/login': (context) => ContainerLogin(),
         // register page
-        '/register':(contex)=> ContainerRegister();
+        '/register': (contex) => ContainerRegister()
       },
     );
   }

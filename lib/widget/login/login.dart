@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/widget/register/register.dart';
 
 class ContainerLogin extends StatelessWidget {
   const ContainerLogin({super.key});
@@ -72,7 +73,7 @@ class LoginPage extends State<StateLogin> {
                             right: 0,
                             child: AnimatedOpacity(
                               opacity: opacity,
-                              duration: const Duration(seconds: 1),
+                              duration: const Duration(milliseconds: 500),
                               curve: Curves.easeIn,
                               child: Image.asset(
                                 'images/ellipse1.png',
@@ -117,9 +118,11 @@ class LoginPage extends State<StateLogin> {
                               'Let\’s Continue',
                             ),
                             onPressed: () {
-                              setState(() {
-                                opacity = 1.0;
-                              });
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ContainerRegister()));
                             },
                             style: ButtonStyle(
                                 alignment: Alignment.center,
