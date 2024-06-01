@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/widget/home/homeWidget.dart';
 import 'package:fruit_hub/widget/login/login.dart';
+import 'package:fruit_hub/widget/register/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +26,8 @@ class ConfigComponent extends State<MyApp> {
         '/': (context) => HomePage(),
         // login page
         '/login': (context) => ContainerLogin(),
+        // register page
+        '/register':(contex)=> ContainerRegister();
       },
     );
   }

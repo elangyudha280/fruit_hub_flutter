@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:fruit_hub/main.dart';
 
 class ContainerLogin extends StatelessWidget {
   const ContainerLogin({super.key});
