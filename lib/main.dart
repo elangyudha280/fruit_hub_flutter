@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/widget/home/homeWidget.dart';
+import 'package:fruit_hub/widget/login/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,8 @@ class ConfigComponent extends State<MyApp> {
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
+        // login page
+        '/login': (context) => ContainerLogin(),
       },
     );
   }
