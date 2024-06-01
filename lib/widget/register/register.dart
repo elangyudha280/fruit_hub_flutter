@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/widget/login/login.dart';
 
 class ContainerRegister extends StatelessWidget {
   @override
@@ -17,6 +18,7 @@ class StateRegister extends StatefulWidget {
 
 class PageRegister extends State<StateRegister> {
   double opacity = 0.0;
+  String? firstname;
 
   @override
   void initState() {
@@ -36,7 +38,7 @@ class PageRegister extends State<StateRegister> {
     return Scaffold(
       body: Column(
         children: [
-          // container top
+          //! container top
           Container(
             width: double.infinity,
             padding: EdgeInsets.all(2),
@@ -83,7 +85,7 @@ class PageRegister extends State<StateRegister> {
               ),
             ),
           ),
-          // container bottom
+          // !container bottom
           Expanded(
               flex: 1,
               child: Container(
@@ -94,16 +96,24 @@ class PageRegister extends State<StateRegister> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Get The Freshest Fruit Salad Combo',
+                      'What is your firstname?',
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    const Text(
-                      'We deliver the best and freshest fruit salad in town. Order for a combo today!!!',
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                    TextField(
+                      cursorOpacityAnimates: true,
+                      decoration: InputDecoration(
+                          hintText: 'Your firstname',
+                          errorText: (firstname == '')
+                              ? 'Firstname cannot empty'
+                              : null),
+                      onChanged: (value) {
+                        setState(() {
+                          firstname = value;
+                        });
+                      },
                     ),
                     Center(
                       child: Container(
@@ -112,14 +122,21 @@ class PageRegister extends State<StateRegister> {
                         margin: EdgeInsets.only(top: 20),
                         child: ElevatedButton(
                             child: Text(
-                              'Let\’s Continue',
+                              'Start Ordering',
                             ),
                             onPressed: () {
+                              //  check jika firtsname kosong
+                              if (firstname == null || firstname == '') {
+                                setState(() {
+                                  firstname = '';
+                                });
+                                return;
+                              }
+                              // arahkan ke home dashboard
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          ContainerRegister()));
+                                      builder: (context) => ContainerLogin()));
                             },
                             style: ButtonStyle(
                                 alignment: Alignment.center,
